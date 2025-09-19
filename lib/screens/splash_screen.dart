@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 
@@ -13,7 +12,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 3), () {
+    // Delay 3 detik lalu pindah ke HomeScreen
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (_) => const HomeScreen()),
@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigo,
+      backgroundColor: Colors.blue[800],
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -33,7 +33,11 @@ class _SplashScreenState extends State<SplashScreen> {
             SizedBox(height: 20),
             Text(
               "Registrasi Data Siswa",
-              style: TextStyle(fontSize: 24, color: Colors.white),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),
